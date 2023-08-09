@@ -1,19 +1,24 @@
 import { useState } from 'react'
-
-import './App.css'
-import SideNavbar from './Pages/Header'
-import Header from './Pages/Header'
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import HomePage from './Pages/HomePage'
+import TopRated from './Components/TopRated'
+import Upcoming from './Components/Upcoming'
+import Popular from './Components/Popular'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-    {/* <div className="w-[20%]  ">
-    </div> */}
-    <div><Header  ></Header></div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />} /> 
+        <Route path ='/upcoming' element={<Upcoming />} />
+        <Route path='/topRated' element={<TopRated />} />
+        <Route path = '/popular' element={<Popular />} />
+      </Routes>
+    </BrowserRouter> 
    
-     {/* <h1 className='text-blue-500'>Hello</h1> */}
     </>
   )
 }
